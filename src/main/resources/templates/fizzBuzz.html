@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>FizzBuzz</title>
+</head>
+
+<body>
+	<h1>FizzBuzz</h1>
+	<ul th:each="item : ${result}"> <!--${result}の中の要素を順番にitem変数に代入し処理を繰り返す-->
+		<li th:text="${item}"></li> <!--${item}の値を表示-->
+	</ul>
+</body>
+
+</html>
