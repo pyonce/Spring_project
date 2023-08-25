@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8" />
+	<title>引き算</title>
+</head>
+
+<body>
+	<h1>引き算</h1>
+	<form action="calculate" method="post"> <!-- actionにはフォームデータが送信されるURLを指定、methodにはデータの送信方法（GETまたはPOST）を指定-->
+		<input type="number" name="num1" required> - <!-- inputで入力フィールドを定義、nameで入力フィールドの名前を指定、requiredは、この入力フィールドが必須であることを示す-->
+		<input type="number" name="num2" required> <!-- inputで入力フィールドを定義、nameで入力フィールドの名前を指定、requiredは、この入力フィールドが必須であることを示す-->
+		<button type="submit">=</button> <!-- buttonでボタンを定義、typeを"submit"に設定することで、ボタンをクリックするとフォームのデータが送信される-->
+	</form>
+	<br>
+	<p th:text="${result}"></p> <!-- ${result}の値を表示-->
+</body>
+
+</html>
