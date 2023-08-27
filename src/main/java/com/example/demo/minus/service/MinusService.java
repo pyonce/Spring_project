@@ -1,4 +1,4 @@
-package com.example.demo.minus; // パッケージ宣言
+package com.example.demo.minus.service; // パッケージ宣言
 
 import org.springframework.stereotype.Service; // Serviceクラスのインポート
 

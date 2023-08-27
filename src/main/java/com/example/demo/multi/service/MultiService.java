@@ -1,4 +1,4 @@
-package com.example.demo.multi; // パッケージ宣言
+package com.example.demo.multi.service; // パッケージ宣言
 
 import org.springframework.stereotype.Service; // @Serviceを使用するために必要なimport文
 

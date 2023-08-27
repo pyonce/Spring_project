@@ -1,10 +1,12 @@
-package com.example.demo.minus; // パッケージ宣言
+package com.example.demo.minus.controller; // パッケージ宣言
 
 import org.springframework.stereotype.Controller; // Controllerクラスをインポート
 import org.springframework.ui.Model; // Modelインターフェースをインポート
 import org.springframework.web.bind.annotation.GetMapping; // GetMappingアノテーションをインポート
 import org.springframework.web.bind.annotation.PostMapping; // PostMappingアノテーションをインポート
 import org.springframework.web.bind.annotation.RequestParam;// RequestParamアノテーションをインポート
+
+import com.example.demo.minus.service.MinusService;
 
 @Controller // Controllerクラスを示す
 public class MinusController { // MinusControllerクラスの宣言

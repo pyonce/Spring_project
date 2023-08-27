@@ -1,10 +1,12 @@
-package com.example.demo.calculator; // パッケージ宣言
+package com.example.demo.calculator.controller; // パッケージ宣言
 
 import org.springframework.stereotype.Controller; // Controllerクラスをインポート
 import org.springframework.ui.Model; // Modelオブジェクトをインポート
 import org.springframework.web.bind.annotation.GetMapping; // GetMappingアノテーションをインポート
 import org.springframework.web.bind.annotation.PostMapping; // PostMappingアノテーションをインポート
 import org.springframework.web.bind.annotation.RequestParam; // RequestParamアノテーションをインポート
+
+import com.example.demo.calculator.service.CalculatorService;
 
 @Controller // Controllerクラスを示す
 public class CalculatorController { // CalculatorControllerクラスの宣言

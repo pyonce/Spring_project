@@ -1,4 +1,4 @@
-package com.example.demo.fizzBuzz; // パッケージ宣言
+package com.example.demo.fizzBuzz.service; // パッケージ宣言
 
 import java.util.ArrayList; // ArrayListクラスをインポート
 import java.util.List; // Listインターフェースをインポート

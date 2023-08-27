@@ -1,8 +1,10 @@
-package com.example.demo.multi; // パッケージ宣言
+package com.example.demo.multi.controller; // パッケージ宣言
 
 import org.springframework.stereotype.Controller; // @Controllerを使用するために必要なimport文
 import org.springframework.ui.Model; // ビューへデータを渡すために使用されるModelクラスを利用するためのimport文
 import org.springframework.web.bind.annotation.GetMapping; // HTTP GETリクエストを処理するための@GetMappingを利用するためのimport文
+
+import com.example.demo.multi.service.MultiService;
 
 @Controller // Controllerクラスを示す
 public class MultiController { // MultiControllerクラスの宣言

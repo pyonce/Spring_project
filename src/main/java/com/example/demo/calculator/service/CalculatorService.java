@@ -1,4 +1,4 @@
-package com.example.demo.calculator; // パッケージ宣言
+package com.example.demo.calculator.service; // パッケージ宣言
 
 import org.springframework.stereotype.Service; // Serviceクラスのインポート
 

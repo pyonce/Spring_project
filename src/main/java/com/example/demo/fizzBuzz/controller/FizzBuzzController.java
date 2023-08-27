@@ -1,8 +1,10 @@
-package com.example.demo.fizzBuzz; // パッケージ宣言
+package com.example.demo.fizzBuzz.controller; // パッケージ宣言
 
 import org.springframework.stereotype.Controller; // Controllerクラスをインポート
 import org.springframework.ui.Model; // Modelインターフェースをインポート
 import org.springframework.web.bind.annotation.GetMapping; // GetMappingアノテーションをインポート
+
+import com.example.demo.fizzBuzz.service.FizzBuzzService;
 
 @Controller // Controllerクラスを示す
 public class FizzBuzzController { // FizzBuzzControllerクラスの宣言
