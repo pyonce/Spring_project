@@ -34,19 +34,22 @@ public class AnimalsAPIController { // AnimalsAPIControllerクラスの宣言
 
 	}
 
-	@GetMapping("animalsResult") // HTTP GETリクエストが"animalsAPI"パスに送信されたときに、以下のメソッドが呼び出されることを示す
-	public String displayAnimals(@RequestParam("animals") String animals, Model model) throws IOException { // throws IOExceptionは、IOExceptionという例外(エラー)をスロー(発生)する可能性があることを示す
+	@GetMapping("animalsResult")
+	public String displayAnimal(@RequestParam("animals") String animals, Model model) throws IOException { // throws IOExceptionは、IOExceptionという例外(エラー)をスロー(発生)する可能性があることを示す
 
 		List<AnimalsAPIData> animalsList = animalsAPIService.getAnimalsAPIData();
 		// animalsAPIServiceからAnimalsAPIData()を取得し、AnimalsAPIDataリストとしてanimalsList変数に代入
-		List<AnimalsAPIData> matchingAnimalsList = new ArrayList<>();
-		for (AnimalsAPIData animal : animalsList) {
-			if (animal.getName().equals(animals)) {
-				matchingAnimalsList.add(animal);
+
+		List<AnimalsAPIData> matchingAnimalsList = new ArrayList<>(); // ArrayListインスタンスを作成し、List<AnimalsAPIData>型のmatchingAnimalsList変数に代入
+
+		for (AnimalsAPIData animal : animalsList) { // animalsListリスト内の各要素をAnimalsAPIData型のanimal変数に順番に格納
+
+			if (animal.getName().equals(animals)) { // animal変数のデータとフォームから送信されたanimalsデータをequals(animals)メソッドで比較し、一致したデータをgetName()メソッドで取得
+				matchingAnimalsList.add(animal); // 取得したデータをmatchingAnimalsList変数に追加
 			}
 		}
 
-		model.addAttribute("matchingAnimalsList", matchingAnimalsList);
+		model.addAttribute("matchingAnimalsList", matchingAnimalsList); // matchingAnimalsList変数を"matchingAnimalsList"という名前でmodel変数に追加
 
 		return "animalsResult.html"; // ビューとしてanimalsAPI.htmlを表示
 
