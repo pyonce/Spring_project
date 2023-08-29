@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>動物一覧</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<form action="animalsResult" method="get">
+		<!--action属性でフォームデータが送信されるURLを指定、method属性でデータの送信方法を指定-->
+		<h1>動物検索画面</h1>
+		<select name="animals">
+			<option th:each="animal : ${animalsList}" th:value="${animal.name}" th:text="${animal.japaneseName}">
+			</option>
+			<!--th:each="animal : ${animalsList}"で、${animalsList}内の各要素をanimal変数に代入-->
+		</select>
+		<button type="submit">検索</button>
+		<!--type="submit"で、ボタンを押すとフォームデータが送信される-->
+	</form>
+</body>

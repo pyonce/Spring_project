@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>動物詳細画面</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>動物詳細画面</h1>
+	<ul style="list-style: none;">
+		<!--list-style: none;でマーカー(・)を無効化-->
+		<li th:each="animal : ${matchingAnimalsList}">
+			<!--th:each="animal : ${matchingAnimalsList}"で、${matchingAnimalsList}内の各要素をanimal変数に代入-->
+			<p th:text="No： + ${animal.id}"></p>
+			<p th:text="英名： + ${animal.name}"></p>
+			<p th:text="和名： + ${animal.japaneseName}"></p>
+			<p th:text="鳴き声： + ${animal.cry}"></p>
+		</li>
+	</ul>
+	<form action=animalsSerch method="get">
+		<button type="submit">トップへ</button>
+	</form>
+</body>
