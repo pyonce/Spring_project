@@ -11,7 +11,7 @@
 		<!--action属性でフォームデータが送信されるURLを指定、method属性でデータの送信方法を指定-->
 		<h1>動物検索画面</h1>
 		<select name="animals">
-			<option th:each="animal : ${animalsList}" th:value="${animal.name}" th:text="${animal.japaneseName}">
+			<option th:each="animal : ${animalsList}" th:value="${animal.id}" th:text="${animal.japaneseName}">
 			</option>
 			<!--th:each="animal : ${animalsList}"で、${animalsList}内の各要素をanimal変数に代入-->
 		</select>

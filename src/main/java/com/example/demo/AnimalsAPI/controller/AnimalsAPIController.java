@@ -1,7 +1,6 @@
 package com.example.demo.AnimalsAPI.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -22,7 +21,7 @@ public class AnimalsAPIController { // AnimalsAPIControllerクラスの宣言
 	} // これにより、AnimalsAPIControllerクラス内のメソッドでanimalsAPIServiceインスタンスを使用できるようになる
 
 	@GetMapping("animalsSerch")
-	public String getAnimals(Model model) throws IOException { // getAnimalsメソッドの宣言
+	public String animalsSearch(Model model) throws IOException { // getAnimalsメソッドの宣言
 		// throws IOExceptionは、IOExceptionという例外(エラー)をスロー(発生)する可能性があることを示す
 
 		List<AnimalsAPIData> animalsList = animalsAPIService.getAnimalsAPIData();
@@ -35,23 +34,13 @@ public class AnimalsAPIController { // AnimalsAPIControllerクラスの宣言
 	}
 
 	@GetMapping("animalsResult")
-	public String displayAnimal(@RequestParam("animals") String animals, Model model) throws IOException { // throws IOExceptionは、IOExceptionという例外(エラー)をスロー(発生)する可能性があることを示す
+	public String animalDetails(@RequestParam("animals") String animals, Model model) throws IOException {
 
-		List<AnimalsAPIData> animalsList = animalsAPIService.getAnimalsAPIData();
-		// animalsAPIServiceからAnimalsAPIData()を取得し、AnimalsAPIDataリストとしてanimalsList変数に代入
+		List<AnimalsAPIData> matchingAnimalsList = animalsAPIService.getSelectedAnimalsAPIData(animals);
 
-		List<AnimalsAPIData> matchingAnimalsList = new ArrayList<>(); // ArrayListインスタンスを作成し、List<AnimalsAPIData>型のmatchingAnimalsList変数に代入
+		model.addAttribute("matchingAnimalsList", matchingAnimalsList);
 
-		for (AnimalsAPIData animal : animalsList) { // animalsListリスト内の各要素をAnimalsAPIData型のanimal変数に順番に格納
-
-			if (animal.getName().equals(animals)) { // animal変数のデータとフォームから送信されたanimalsデータをequals(animals)メソッドで比較し、一致したデータをgetName()メソッドで取得
-				matchingAnimalsList.add(animal); // 取得したデータをmatchingAnimalsList変数に追加
-			}
-		}
-
-		model.addAttribute("matchingAnimalsList", matchingAnimalsList); // matchingAnimalsList変数を"matchingAnimalsList"という名前でmodel変数に追加
-
-		return "animalsResult.html"; // ビューとしてanimalsAPI.htmlを表示
+		return "animalsResult.html";
 
 	}
 

@@ -27,4 +27,11 @@ public class AnimalsAPIService { // AnimalsAPIServiceクラスの宣言
 		return Arrays.asList(animalsList);
 		// ArraysクラスのasList()メソッドを使用して、animalsList変数に格納されているAnimalsAPIData配列をList<AnimalsAPIData>に変換
 	}
+
+	public List<AnimalsAPIData> getSelectedAnimalsAPIData(String animals) throws IOException {
+
+		AnimalsAPIData[] matchingAnimalsList = animalsAPIRepository.getSelectedAnimalsAPIData(animals);
+
+		return Arrays.asList(matchingAnimalsList);
+	}
 }

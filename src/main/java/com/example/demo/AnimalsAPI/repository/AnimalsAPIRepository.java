@@ -34,4 +34,21 @@ public class AnimalsAPIRepository { // AnimalsAPIRepositoryクラスの宣言
 		return animalsList; // animalsList変数(AnimalsAPIData配列)を返す
 	}
 
+	public AnimalsAPIData[] getSelectedAnimalsAPIData(String animals) throws IOException {
+
+		String url = "https://jsn9xu2vsk.execute-api.ap-northeast-1.amazonaws.com/sample/sampleapi?id=" + animals;
+
+		RestTemplate rest = new RestTemplate();
+
+		ResponseEntity<String> response = rest.getForEntity(url, String.class);
+
+		String json = response.getBody();
+
+		ObjectMapper mapper = new ObjectMapper();
+
+		AnimalsAPIData[] matchingAnimalsList = mapper.readValue(json, AnimalsAPIData[].class);
+
+		return matchingAnimalsList;
+	}
+
 }
